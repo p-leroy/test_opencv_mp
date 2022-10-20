@@ -87,9 +87,10 @@ int main()
     cv::TermCriteria terminationCriteria(cv::TermCriteria::MAX_ITER, 100, std::numeric_limits<double>::epsilon());
     m_rtrees->setTermCriteria(terminationCriteria);
 
-    m_rtrees->train(data, cv::ml::ROW_SAMPLE, labels);
-
-    std::cout << "[main]" << std::endl;
+	std::cout << "[main] start training" << std::endl;
+//    m_rtrees->train(data, cv::ml::ROW_SAMPLE, labels);
+	m_rtrees->train_MP(data, cv::ml::ROW_SAMPLE, labels);
+	std::cout << "[main] training complete" << std::endl;
 
     return 0;
 }
